@@ -53,10 +53,10 @@ void PlaceChests(std::vector<std::vector<char>>& dungeon) {
 
 		do {
 
-			x = rand() % dungeon.size();
-			y = rand() % dungeon.size();
+			x = rand() % dungeon.size() - 1;
+			y = rand() % dungeon.size() - 1;
 
-		} while (x <= 0 || x >= dungeon.size() || y <= 0 || y >= dungeon.size());
+		} while (x <= 0 || x >= dungeon.size() && y <= 0 || y >= dungeon.size());
 
 		dungeon[x][y] = 'C';
 	}
@@ -64,6 +64,8 @@ void PlaceChests(std::vector<std::vector<char>>& dungeon) {
 }
 
 void PrintDungeon(std::vector<std::vector<char>> dungeon) {
+
+	system("cls");
 
 	for (int i = 0; i < dungeon.size(); i++)
 	{
