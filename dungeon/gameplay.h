@@ -6,4 +6,4 @@ struct Position {
 	int y;
 };
 
-void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position &playerPosition);
+void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position &playerPosition, int& points);

@@ -21,7 +21,7 @@ int main() {
 
 		PrintDungeon(dungeon);
 		std::cout << "Your budget: " << points << "\n";
-		PlayerMovement(dungeon, playerPosition);
+		PlayerMovement(dungeon, playerPosition, points);
 
 	}
 
