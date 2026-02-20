@@ -8,7 +8,7 @@
 // and i push it to the vector of vectors.
 // Either way it returns a vector of vectors called dungeon.
 
-std::vector<std::vector<char>> CreateDungeonWithFile() {
+std::vector<std::vector<char>> CreateOrNotDungeonWithFile() {
 
 	std::vector<std::vector<char>> dungeon;
 	std::string line;

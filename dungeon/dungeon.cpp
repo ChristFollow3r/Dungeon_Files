@@ -69,7 +69,7 @@ void PrintDungeon(std::vector<std::vector<char>> dungeon) {
 
 	for (int i = 0; i < dungeon.size(); i++)
 	{
-		for (int j = 0; j < dungeon[i].size(); j++)
+		for (int j = 0; j < dungeon[i].size(); j++) // Marti això mho vas dir tu (dungeon[i])
 		{
 			std::cout << dungeon[i][j] << " ";
 		}
