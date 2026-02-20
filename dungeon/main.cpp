@@ -8,7 +8,7 @@ int main() {
 	srand(time(NULL));
 	Position playerPosition;
 
-	std::vector<std::vector<char>> dungeon = CreateDungeon();
+	std::vector<std::vector<char>> dungeon = CreateDungeonWithFile();
 	PlaceChests(dungeon);
 
 	playerPosition.x = dungeon.size() / 2;

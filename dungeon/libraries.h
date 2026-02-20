@@ -6,3 +6,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <fstream>
+#include "files.h"
+#include "dungeon.h"
+#include "gameplay.h"
