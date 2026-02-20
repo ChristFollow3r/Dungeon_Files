@@ -32,6 +32,33 @@ std::vector<std::vector<char>> CreateDungeon() {
 	return dungeon;
 }
 
+void PlacheChests(std::vector<std::vector<char>>& dungeon) {
+
+	std::string input;
+	int amount = -1;
+
+
+	while (amount < 0 || amount >= (dungeon.size() / 2)) {
+
+	std::cout << "How many chests do you want the dungeon to have: ";
+	std::cin >> input;
+
+	amount = stoi(input);
+
+	}
+
+	for (int i = 0; i < amount; i++) {
+
+		do {
+
+			int x = rand() % dungeon.size();
+			int y = rand() % dungeon.size();
+
+		} while (x <= 0 || x >= dungeon.size() || y <= 0 || y >= dungeon.size());
+	}
+
+}
+
 void PrintDungeon(std::vector<std::vector<char>> dungeon) {
 
 	for (int i = 0; i < dungeon.size(); i++)
