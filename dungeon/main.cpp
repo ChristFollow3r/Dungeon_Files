@@ -15,13 +15,13 @@ int main() {
 	playerPosition.y = dungeon.size() / 2;
 	dungeon[playerPosition.x][playerPosition.y] = 'P';
 
-	int points = rand() % 200;
+	int money = rand() % 200;
 
 	while (true) {
 
 		PrintDungeon(dungeon);
-		std::cout << "Your budget: " << points << "\n";
-		PlayerMovement(dungeon, playerPosition, points);
+		std::cout << "Your budget: " << money << "\n";
+		PlayerMovement(dungeon, playerPosition, money);
 
 	}
 
