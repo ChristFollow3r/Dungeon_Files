@@ -40,7 +40,7 @@ void PlaceChests(std::vector<std::vector<char>>& dungeon) {
 	int y;
 
 
-	while (amount < 0 || amount >= (dungeon.size() / 2)) {
+	while (amount < 0 || amount >= (dungeon.size() / 1.5)) {
 
 	std::cout << "How many chests do you want the dungeon to have: ";
 	std::cin >> input;
@@ -51,15 +51,16 @@ void PlaceChests(std::vector<std::vector<char>>& dungeon) {
 
 	for (int i = 0; i < amount + 1; i++) {
 
+		// Ni idea de perque els cofres apareixen a les parets.
 		do {
 
 			x = rand() % dungeon.size();
 			y = rand() % dungeon.size();
 
-		} while (x <= 0 || x >= dungeon.size() - 2 && y <= 0 || y >= dungeon.size() - 2);
+		} while (x <= 1 || x >= dungeon.size() - 2 && y <= 1 || y >= dungeon.size() - 2);
 
 		if (i == amount) dungeon[x][y] = 'S';
-		else dungeon[x][y] = 'C';
+		else if (i != amount) dungeon[x][y] = 'C';
 	}
 
 }
