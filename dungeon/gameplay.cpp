@@ -120,7 +120,7 @@ void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPos
 		break;
 	case ('E'): {
 		SaveAndExitGame(dungeon);
-		break;
+		exit(0);
 	}
 	}
 
