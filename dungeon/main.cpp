@@ -11,6 +11,7 @@ int main() {
 
 	std::vector<std::vector<char>> dungeon = CreateOrNotDungeonWithFile();
 	PlaceChests(dungeon);
+	PlaceEnemies(dungeon);
 
 	playerPosition.x = dungeon.size() / 2;
 	playerPosition.y = dungeon.size() / 2;

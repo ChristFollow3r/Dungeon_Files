@@ -11,6 +11,7 @@ std::vector<std::vector<char>> CreateDungeon();
 /// </summary>
 /// <param name="dungeon">The 2D grid where the game takes place</param>
 void PlaceChests(std::vector<std::vector<char>>& dungeon);
+void PlaceEnemies(std::vector<std::vector<char>>& dungeon);
 /// <summary>
 /// Prints the dungeon to the console
 /// </summary>

@@ -69,6 +69,34 @@ void PlaceChests(std::vector<std::vector<char>>& dungeon) {
 
 }
 
+
+void PlaceEnemies(std::vector<std::vector<char>>& dungeon) {
+
+	int amount = dungeon.size() + 5; // Perquè si :V Magic number que flipas per la cara
+	int x;
+	int y;
+
+	for (int i = 0; i < amount + 1; i++) {
+
+
+		x = rand() % dungeon.size();
+		y = rand() % dungeon.size();
+
+		if (x == 0) x += 1;
+		else if (x == dungeon.size() - 1) x -= 1;
+
+		if (y == 0) y += 1;
+		else if (y == dungeon.size() - 1) y -= 1;
+
+		if (dungeon[x][y] == 'C' || dungeon[x][y] == 'P' || dungeon[x][y] == 'S') {
+			amount--;
+			continue;
+		}
+
+		dungeon[x][y] = 'E';
+	}
+}
+
 void PrintDungeon(std::vector<std::vector<char>> dungeon) {
 
 	system("cls");

@@ -22,8 +22,9 @@ void EscapeDungeon(int& points);
 /// <summary>
 /// Randomly places a 'P' inside the dungeon if the player exits the shop
 /// </summary>
-/// <param name="dungeon"></param>
+/// <param name="dungeon">The 2D grid where the player plays</param>
 void FindShop(std::vector<std::vector<char>>& dungeon);
+void Enemy();
 /// <summary>
 /// Move the player inside the dungeon and other stuff (like getting money from chests)
 /// </summary>
