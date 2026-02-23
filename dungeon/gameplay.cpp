@@ -19,14 +19,14 @@ void EscapeDungeon(int& points) {
 	std::cin >> input;
 	if (input == 'y' && points >= 800) {
 		system("cls");
-		std::cout << "Congratulations! You managed to escape the dungeon\n";
+		std::cout << "Congratulations... You managed to escape the dungeon!\n";
 		system("pause");
 		std::exit(0); // Això de exit li he preguntat a la IA perquè no tenia ni idea de com fer-ho (es tot lo de IA que n'hi ha en el programa fins ara :)
 	}
 
 	else {
 		system("cls");
-		std::cout << "You dont have enought money to buy a way out!\nCome back with 800 coins...\nIf you manage to find your way back lol.\n";
+		std::cout << "You dont have enought money to buy your way out!\nCome back with 800 coins...\nIf you manage to find your way back lol.\n";
 		system("pause");
 	}
 }
@@ -36,7 +36,7 @@ void Enemy(int winChance, int& money, int& playerHealth) {
 	system("cls");
 	int eAttack = rand() % 100;
 
-	std::cout << "The skeleton attacks you\n";
+	std::cout << "The skeleton attacks you...\n";
 	system("pause");
 	if (winChance < eAttack) {
 		std::cout << "You won this combat!\n";
