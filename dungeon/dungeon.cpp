@@ -51,13 +51,17 @@ void PlaceChests(std::vector<std::vector<char>>& dungeon) {
 
 	for (int i = 0; i < amount + 1; i++) {
 
-		// Ni idea de perque els cofres apareixen a les parets.
-		do {
+		//while (x <= 2 || x >= dungeon.size() - 2 && y <= 2 || y >= dungeon.size() - 2); No se perquè això no em funciona be
 
-			x = rand() % dungeon.size();
-			y = rand() % dungeon.size();
+		x = rand() % dungeon.size();
+		y = rand() % dungeon.size();
 
-		} while (x <= 1 || x >= dungeon.size() - 2 && y <= 1 || y >= dungeon.size() - 2);
+		if (x == 0) x += 1;
+		else if (x == dungeon.size() - 1) x -= 1;
+
+		if (y == 0) y += 1;
+		else if (y == dungeon.size() - 1) y -= 1;
+
 
 		if (i == amount) dungeon[x][y] = 'S';
 		else if (i != amount) dungeon[x][y] = 'C';
