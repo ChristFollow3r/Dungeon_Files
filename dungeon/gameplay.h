@@ -15,4 +15,4 @@ struct Position {
 /// <param name="dungeon">The 2D grid</param>
 /// <param name="playerPosition">The player position</param>
 /// <param name="points">The amount of points the player has</param>
-void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position &playerPosition, int& points);
+void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position &playerPosition, int& points, int& winChance);
