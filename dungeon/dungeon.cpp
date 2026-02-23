@@ -49,7 +49,7 @@ void PlaceChests(std::vector<std::vector<char>>& dungeon) {
 
 	}
 
-	for (int i = 0; i < amount; i++) {
+	for (int i = 0; i < amount + 1; i++) {
 
 		do {
 
@@ -58,7 +58,8 @@ void PlaceChests(std::vector<std::vector<char>>& dungeon) {
 
 		} while (x <= 0 || x >= dungeon.size() - 2 && y <= 0 || y >= dungeon.size() - 2);
 
-		dungeon[x][y] = 'C';
+		if (i == amount) dungeon[x][y] = 'S';
+		else dungeon[x][y] = 'C';
 	}
 
 }

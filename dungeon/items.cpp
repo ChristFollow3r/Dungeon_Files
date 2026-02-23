@@ -114,3 +114,7 @@ void Shop(int& money, std::vector<Items>& inventory) {
 	}
 }
 
+std::vector<Items> PlayerInventory() {
+	std::vector<Items> inventory();
+	return inventory();
+}
