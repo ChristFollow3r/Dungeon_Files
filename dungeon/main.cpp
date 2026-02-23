@@ -7,6 +7,7 @@ int main() {
 
 	srand(time(NULL));
 	Position playerPosition;
+	int playerHealth = rand() % 10;
 	int winChance = 30; // A ver profe com que un item del archiu items.txt? Que he de fer crear un txt amb una lletra dins?
 
 	std::vector<std::vector<char>> dungeon = CreateOrNotDungeonWithFile();
@@ -23,7 +24,7 @@ int main() {
 
 		PrintDungeon(dungeon);
 		std::cout << "Your budget: " << money << "\n";
-		PlayerMovement(dungeon, playerPosition, money, winChance);
+		PlayerMovement(dungeon, playerPosition, money, winChance, playerHealth);
 
 	}
 

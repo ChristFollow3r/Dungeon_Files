@@ -24,11 +24,11 @@ void EscapeDungeon(int& points);
 /// </summary>
 /// <param name="dungeon">The 2D grid where the player plays</param>
 void FindShop(std::vector<std::vector<char>>& dungeon);
-void Enemy();
+void Enemy(int winChance, int& money, int& playerHealth);
 /// <summary>
 /// Move the player inside the dungeon and other stuff (like getting money from chests)
 /// </summary>
 /// <param name="dungeon">The 2D grid</param>
 /// <param name="playerPosition">The player position</param>
 /// <param name="points">The amount of points the player has</param>
-void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position &playerPosition, int& points, int& winChance);
+void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position &playerPosition, int& money, int& winChance, int& playerHealth);

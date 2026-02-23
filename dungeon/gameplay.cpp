@@ -31,6 +31,35 @@ void EscapeDungeon(int& points) {
 	}
 }
 
+void Enemy(int winChance, int& money, int& playerHealth) {
+
+	system("cls");
+	int eAttack = rand() % 100;
+
+	std::cout << "The skeleton attacks you\n";
+	system("pause");
+	if (winChance < eAttack) {
+		std::cout << "You won this combat!\n";
+		system("pause");
+		money += rand() % 50;
+		return;
+	}
+	else {
+		playerHealth -= 1;
+		system("cls");
+		if (playerHealth == 0) {
+			std::cout << "You died :( Rest in piece brave soldier...\n";
+			system("pause");
+			exit(0);
+		}
+		else {
+			std::cout << "You took a massive blow from the skeleton, but the dude died in the process.\n";
+			system("pause");
+			return;
+		}
+	}
+
+}
 
 void FindShop(std::vector<std::vector<char>>& dungeon) {
 
@@ -45,7 +74,7 @@ void FindShop(std::vector<std::vector<char>>& dungeon) {
 
 	if (max == 0) dungeon[rand() % dungeon.size()][rand() % dungeon.size()] = 'S';
 
-	// Et deixo aqui un cadaver dun tros de codi que pensava que era genius moment pero que feia que sortisin pila de S
+	// Et deixo aqui un cadaver d'un tros de codi que pensava que era genius moment pero que feia que sortisin pila de S
 
 	//for (int i = 0; i < dungeon.size(); i++) {
 	//	auto it = std::find(dungeon[i].begin(), dungeon[i].end(), 'S');
@@ -56,7 +85,7 @@ void FindShop(std::vector<std::vector<char>>& dungeon) {
 	//}
 }
 
-void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPosition, int& points, int& winChance) {
+void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPosition, int& money, int& winChance, int& playerHealth) {
 
 	std::string input;
 	char direction;
@@ -79,8 +108,9 @@ void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPos
 
 		if (dungeon[playerPosition.x - 1][playerPosition.y] == '#') break;
 
-		else if ((dungeon[playerPosition.x - 1][playerPosition.y] == 'C')) AddPoints(points, winChance);
-		else if (dungeon[playerPosition.x - 1][playerPosition.y] == 'S') EscapeDungeon(points);
+		else if ((dungeon[playerPosition.x - 1][playerPosition.y] == 'C')) AddPoints(money, winChance);
+		else if (dungeon[playerPosition.x - 1][playerPosition.y] == 'S') EscapeDungeon(money);
+		else if (dungeon[playerPosition.x - 1][playerPosition.y] == 'E') Enemy(winChance, money, playerHealth);
 		dungeon[playerPosition.x - 1][playerPosition.y] = 'P';
 		dungeon[playerPosition.x][playerPosition.y] = ' ';
 		FindShop(dungeon);
@@ -89,8 +119,9 @@ void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPos
 
 	case ('S'):
 		if (dungeon[playerPosition.x + 1][playerPosition.y] == '#') break;
-		else if ((dungeon[playerPosition.x + 1][playerPosition.y] == 'C')) AddPoints(points, winChance);
-		else if (dungeon[playerPosition.x + 1][playerPosition.y] == 'S') EscapeDungeon(points);
+		else if ((dungeon[playerPosition.x + 1][playerPosition.y] == 'C')) AddPoints(money, winChance);
+		else if (dungeon[playerPosition.x + 1][playerPosition.y] == 'S') EscapeDungeon(money);
+		else if (dungeon[playerPosition.x + 1][playerPosition.y] == 'E') Enemy(winChance, money, playerHealth);
 
 		dungeon[playerPosition.x + 1][playerPosition.y] = 'P';
 		dungeon[playerPosition.x][playerPosition.y] = ' ';
@@ -100,8 +131,10 @@ void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPos
 
 	case ('A'):
 		if (dungeon[playerPosition.x][playerPosition.y - 1] == '#') break;
-		else if ((dungeon[playerPosition.x][playerPosition.y - 1] == 'C')) AddPoints(points, winChance);
-		else if (dungeon[playerPosition.x][playerPosition.y - 1] == 'S') EscapeDungeon(points);
+		else if ((dungeon[playerPosition.x][playerPosition.y - 1] == 'C')) AddPoints(money, winChance);
+		else if (dungeon[playerPosition.x][playerPosition.y - 1] == 'S') EscapeDungeon(money);
+		else if (dungeon[playerPosition.x][playerPosition.y - 1] == 'E') Enemy(winChance, money, playerHealth);
+
 		dungeon[playerPosition.x][playerPosition.y - 1] = 'P';
 		dungeon[playerPosition.x][playerPosition.y] = ' ';
 		FindShop(dungeon);
@@ -110,8 +143,9 @@ void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPos
 
 	case ('D'):
 		if (dungeon[playerPosition.x][playerPosition.y + 1] == '#') break;
-		else if ((dungeon[playerPosition.x][playerPosition.y + 1] == 'C')) AddPoints(points, winChance);
-		else if (dungeon[playerPosition.x][playerPosition.y + 1] == 'S') EscapeDungeon(points);
+		else if ((dungeon[playerPosition.x][playerPosition.y + 1] == 'C')) AddPoints(money, winChance);
+		else if (dungeon[playerPosition.x][playerPosition.y + 1] == 'S') EscapeDungeon(money);
+		else if (dungeon[playerPosition.x][playerPosition.y + 1] == 'E') Enemy(winChance, money, playerHealth);
 
 		dungeon[playerPosition.x][playerPosition.y + 1] = 'P';
 		dungeon[playerPosition.x][playerPosition.y] = ' ';
