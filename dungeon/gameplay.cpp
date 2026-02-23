@@ -1,5 +1,6 @@
 #include "libraries.h"
 #include "gameplay.h"
+#include "items.h"
 
 void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPosition, int& points) {
 
@@ -23,7 +24,6 @@ void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPos
 		case ('W') :
 			if (dungeon[playerPosition.x - 1][playerPosition.y] == '#') break;
 			else if ((dungeon[playerPosition.x - 1][playerPosition.y] == 'C')) points += 50;
-			else if ((dungeon[playerPosition.x - 1][playerPosition.y] == 'C'))
 			dungeon[playerPosition.x - 1][playerPosition.y] = 'P';
 			dungeon[playerPosition.x][playerPosition.y] = ' ';
 			playerPosition.x -= 1;
