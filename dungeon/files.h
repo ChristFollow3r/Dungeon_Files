@@ -6,3 +6,4 @@
 /// </summary>
 /// <returns>2D vector (The dungeon grid)</returns>
 std::vector<std::vector<char>> CreateOrNotDungeonWithFile();
+void SaveAndExitGame(std::vector<std::vector<char>>& dungeon);

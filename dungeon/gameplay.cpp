@@ -119,7 +119,7 @@ void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPos
 		playerPosition.y += 1;
 		break;
 	case ('E'): {
-		// To implement
+		SaveAndExitGame(dungeon);
 		break;
 	}
 	}

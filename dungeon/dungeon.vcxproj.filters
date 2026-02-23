@@ -45,4 +45,9 @@
   <ItemGroup>
     <Text Include="dungeonFile.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="savedGame.bin">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+  </ItemGroup>
 </Project>

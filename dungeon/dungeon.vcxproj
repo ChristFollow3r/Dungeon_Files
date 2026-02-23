@@ -141,6 +141,9 @@
   <ItemGroup>
     <Text Include="dungeonFile.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="savedGame.bin" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

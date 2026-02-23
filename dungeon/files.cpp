@@ -42,7 +42,45 @@ std::vector<std::vector<char>> CreateOrNotDungeonWithFile() {
 
 			dungeon.push_back(row);
 		}
-
+		dungeonFile.close();
 		return dungeon;
 	}
+}
+
+void SaveAndExitGame(std::vector<std::vector<char>>& dungeon) { // Diria que no la necessito per referencia pero jo ho faig per si acas.
+
+	std::fstream file("savedGame.bin", std::ios::in | std::ios::binary);
+	std::string input;
+
+	std::cout << "Do you want to save and exit the game? (Y) / (N)\n";
+	std::cin >> input;
+
+	if (input == "n" || input == "N") return;
+
+	else {
+
+		if (!file.is_open()) {
+			system("cls");
+			std::cout << "Couldn't open the file. That's a you problem.";
+			system("pause");
+			return;
+		}
+
+		for (int i = 0; i < dungeon.size(); i++)
+		{
+			for (char x : dungeon[i]) {
+				file.write(reinterpret_cast<char*>(&x), sizeof(char));
+			}
+		}
+
+		file.close();
+		system("cls");
+		std::cout << "See you soon brave adventurer!";
+		exit(0);
+	}
+
+
+
+
+
 }
