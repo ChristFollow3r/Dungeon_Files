@@ -130,14 +130,12 @@
     <ClCompile Include="dungeon.cpp" />
     <ClCompile Include="files.cpp" />
     <ClCompile Include="gameplay.cpp" />
-    <ClCompile Include="items.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dungeon.h" />
     <ClInclude Include="files.h" />
     <ClInclude Include="gameplay.h" />
-    <ClInclude Include="items.h" />
     <ClInclude Include="libraries.h" />
   </ItemGroup>
   <ItemGroup>
