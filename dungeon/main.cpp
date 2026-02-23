@@ -24,6 +24,7 @@ int main() {
 
 		PrintDungeon(dungeon);
 		std::cout << "Your budget: " << money << "\n";
+		std::cout << "Your health: " << playerHealth << "\n";
 		PlayerMovement(dungeon, playerPosition, money, winChance, playerHealth);
 
 	}
