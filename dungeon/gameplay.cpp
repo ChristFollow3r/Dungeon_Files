@@ -9,7 +9,7 @@
 
 void AddPoints(int& points, int& winChance) {
 	points += rand() % 100;
-	winChance += rand() % 100;
+	winChance += rand() % 10;
 }
 
 void EscapeDungeon(int& points) {
@@ -38,7 +38,7 @@ void Enemy(int winChance, int& money, int& playerHealth) {
 
 	std::cout << "The skeleton attacks you...\n";
 	system("pause");
-	if (winChance < eAttack) {
+	if (winChance > eAttack) {
 		std::cout << "You won this combat!\n";
 		system("pause");
 		money += rand() % 50;
@@ -47,7 +47,7 @@ void Enemy(int winChance, int& money, int& playerHealth) {
 	else {
 		playerHealth -= 1;
 		system("cls");
-		if (playerHealth == 0) {
+		if (playerHealth <= 0) {
 			std::cout << "You died :( Rest in piece brave soldier...\n";
 			system("pause");
 			exit(0);

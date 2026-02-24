@@ -12,7 +12,7 @@ std::vector<std::vector<char>> CreateOrNotDungeonWithFile();
 /// Get's items from items.txt
 /// </summary>
 /// <param name="">The avalible items in the shop</param>
-void GetItemsFromFile(std::vector<Item>);
+void GetItemsFromFile(std::vector<Item>& avalibleItems);
 /// <summary>
 /// Save's the game in a binary file and exists the game.
 /// </summary>

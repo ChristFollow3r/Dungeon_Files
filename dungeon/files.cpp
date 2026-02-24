@@ -77,3 +77,55 @@ void SaveAndExitGame(std::vector<std::vector<char>>& dungeon) { // Diria que no 
 	exit(0);
 
 }
+
+void GetItemsFromFile(std::vector<Item>& avalibleItems) {
+
+	std::fstream file("items.txt", std::ios::in);
+	std::string line;
+	std::vector<std::string> itemInfo;
+
+	if (!file.is_open()) {
+		system("cls");
+		std::cout << "Couldn't open items.txt file.";
+		system("pause");
+		exit(0);
+	}
+
+	while (std::getline(file, line)) {
+		itemInfo.push_back(line);
+	}
+
+	file.close();
+
+	while (!itemInfo.empty()) {
+
+		Item* item = new Item;
+
+		for (int i = 0; i < 4; i++)
+		{
+			switch (i) {
+
+			case (0):
+				item->name = itemInfo[i];
+				break;
+			case (1):
+				item->price = stoi(itemInfo[i]);
+				break;
+			case (2):
+				item->winChance = stoi(itemInfo[i]);
+			case (3):
+				item->description = itemInfo[i];
+				break;
+			}
+		}
+
+		for (int i = 0; i < 4; i++)
+		{
+			itemInfo.pop_back();
+		}
+
+		avalibleItems.push_back(*item);
+	}
+	
+
+}

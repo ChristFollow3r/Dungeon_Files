@@ -8,6 +8,7 @@ public:
 	int price;
 	int winChance;
 	std::string description;
+
 };
 
 void PlayerInventory(std::vector<Item>);

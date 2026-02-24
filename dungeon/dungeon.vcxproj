@@ -141,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="dungeonFile.txt" />
+    <Text Include="items.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="savedGame.bin" />

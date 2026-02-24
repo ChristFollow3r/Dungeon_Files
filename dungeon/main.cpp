@@ -2,15 +2,18 @@
 #include "dungeon.h"
 #include "gameplay.h"
 #include "libraries.h"
+#include "inventory.h"
 
 int main() {
 
 	srand(time(NULL));
 	Position playerPosition;
 	int playerHealth = rand() % 10;
-	int winChance = 30; // A ver profe com que un item del archiu items.txt? Que he de fer crear un txt amb una lletra dins?
+	int winChance = 30; 
+	std::vector<Item> avalibleItems;
 
 	std::vector<std::vector<char>> dungeon = CreateOrNotDungeonWithFile();
+	GetItemsFromFile(avalibleItems);
 	PlaceChests(dungeon);
 	PlaceEnemies(dungeon);
 

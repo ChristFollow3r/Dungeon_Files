@@ -2,22 +2,18 @@ Health Potion
 52
 4
 Heals you 1 hp
-
 Bomb
 150
 0
 Allows you to make a hole in a wall (don't use it on border walls and step outside or we all will crash)
-
 Gambling coin
 500
 0
 Use it in the cassino (K). If you win you might get a shit ton of money
-
 Sword
 450
 35
 Use this if you want to win fights more often
-
 Shield
 250
 25
