@@ -63,7 +63,8 @@ void PlaceChests(std::vector<std::vector<char>>& dungeon) {
 		else if (y == dungeon.size() - 1) y -= 1;
 
 
-		if (i == amount) dungeon[x][y] = 'S';
+		if (i == amount) dungeon[x][y] = 'O';
+		else if (i == amount - 1) dungeon[x][y] = 'S';
 		else if (i != amount) dungeon[x][y] = 'C';
 	}
 

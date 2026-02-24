@@ -1,5 +1,6 @@
 #pragma once
 #include "libraries.h"
+#include "inventory.h"
 
 /// <summary>
 /// It's a vector 2
@@ -24,6 +25,12 @@ void EscapeDungeon(int& points);
 /// </summary>
 /// <param name="dungeon">The 2D grid where the player plays</param>
 void FindShop(std::vector<std::vector<char>>& dungeon);
+/// <summary>
+/// Enters a simple text fight
+/// </summary>
+/// <param name="winChance">The chances the player has to win a fight</param>
+/// <param name="money">The amount of money the player has</param>
+/// <param name="playerHealth">The player health</param>
 void Enemy(int winChance, int& money, int& playerHealth);
 /// <summary>
 /// Move the player inside the dungeon and other stuff (like getting money from chests)
@@ -31,4 +38,5 @@ void Enemy(int winChance, int& money, int& playerHealth);
 /// <param name="dungeon">The 2D grid</param>
 /// <param name="playerPosition">The player position</param>
 /// <param name="points">The amount of points the player has</param>
-void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position &playerPosition, int& money, int& winChance, int& playerHealth);
+void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position &playerPosition, int& money, int& winChance, int& playerHealth, std::vector<Item> avalibleItems);
+void OpenShop(std::vector<Item> avalibleItems, int& money, int& winChance, int& playerHealth);

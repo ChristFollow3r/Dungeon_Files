@@ -1,4 +1,4 @@
-Health Potion
+Potion
 52
 4
 Heals you 1 hp
