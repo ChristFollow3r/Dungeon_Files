@@ -98,7 +98,6 @@ void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPos
 	else if (input == "a") input = "A";
 	else if (input == "d") input = "D";
 	else if (input == "e") input = "E";
-	else return;
 
 	direction = input[0];
 
@@ -152,10 +151,17 @@ void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPos
 		FindShop(dungeon);
 		playerPosition.y += 1;
 		break;
-	case ('E'): {
+	case ('E'): 
 		SaveAndExitGame(dungeon);
 		exit(0);
-	}
+
+	case ('1'): 
+
+		// To do
+		break;
+
+	default:
+		break;
 	}
 
 }

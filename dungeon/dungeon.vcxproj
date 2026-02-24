@@ -136,6 +136,7 @@
     <ClInclude Include="dungeon.h" />
     <ClInclude Include="files.h" />
     <ClInclude Include="gameplay.h" />
+    <ClInclude Include="inventory.h" />
     <ClInclude Include="libraries.h" />
   </ItemGroup>
   <ItemGroup>
