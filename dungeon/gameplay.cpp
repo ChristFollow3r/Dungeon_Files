@@ -108,7 +108,7 @@ void OpenShop(std::vector<Item> avalibleItems, int& money, int& winChance, int& 
 			break;
 		}
 
-		else {
+		else if (avalibleItems[i].name != input && i == avalibleItems.size() - 1) {
 			std::cout << "That item doesn't exist...\n";
 			system("pause");
 			break;
