@@ -8,7 +8,7 @@ int main() {
 
 	srand(time(NULL));
 	Position playerPosition;
-	int playerHealth = rand() % 10;
+	int playerHealth = rand() % 6;
 	int winChance = 30; 
 	std::vector<Item> avalibleItems;
 
