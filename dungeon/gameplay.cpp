@@ -61,7 +61,7 @@ void Enemy(int winChance, int& money, int& playerHealth) {
 
 }
 
-void OpenShop(std::vector<Item> avalibleItems, int& money, int& winChance, int& playerHealth, bool& bomb) {
+void OpenShop(std::vector<Item> avalibleItems, int& money, int& winChance, int& playerHealth, bool& bomb, bool& gamblingCoin) {
 
 	system("cls");
 	std::cout << "Welcome to my humble shop :)\nThis is all I can offer you today...\n\n";
@@ -103,14 +103,15 @@ void OpenShop(std::vector<Item> avalibleItems, int& money, int& winChance, int& 
 			money -= avalibleItems[i].price;
 			winChance += avalibleItems[i].winChance;
 			system("cls");
-			std::cout << "\nCongratulations! Now you are a proud owner of '" << avalibleItems[i].name << "'.\n";
+			std::cout << "Congratulations! Now you are a proud owner of '" << avalibleItems[i].name << "'.\n";
 
 			if (avalibleItems[i].name == "Potion") playerHealth += 1;
 			else if (avalibleItems[i].name == "Bomb") bomb = true;
+			else if (avalibleItems[i].name == "Gambling_Coin") gamblingCoin = true;
 
 			system("pause");
 			system("cls");
-			std::cout << "\nGood luck out there!\n";
+			std::cout << "Good luck out there!\n";
 			system("pause");
 			break;
 		}
@@ -202,7 +203,90 @@ void PlayerKillHimSelf(bool& bomb, int& winChance) {
 	}
 }
 
-void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPosition, int& money, int& winChance, int& playerHealth, std::vector<Item> avalibleItems, bool& bomb) {
+void GamblingCoin(int& money, int& playerHealth, bool& gamblingCoin) {
+
+	int rChannce = rand() % 101;
+	if (gamblingCoin == true) {
+
+		system("cls");
+		std::cout << "You flip a magical coin...\n";
+		system("pause");
+		system("cls");
+		std::cout << "It rises up in the air...\n";
+		system("pause");
+		system("cls");
+		std::cout << "You stare at it...\n";
+		system("pause");
+		system("cls");
+		std::cout << "And you think yo yourself...\n";
+		system("pause");
+		system("cls");
+		std::cout << "What's that coing made off?\n";
+		system("pause");
+		system("cls");
+		std::cout << "The coin starts to fall...\n";
+		system("pause");
+		system("cls");
+		std::cout << "It's about to reach your hand again...\n";
+		system("pause");
+		system("cls");
+
+
+		if (rChannce >= 50) {
+			std::cout << "It's heads!\n";
+			system("pause");
+			system("cls");
+			std::cout << "The coin emits a feble light...\n";
+			system("pause");
+			system("cls");
+			std::cout << "You you've gained 700 coins!\n";
+			system("pause");
+			system("cls");
+			gamblingCoin = false;
+			money += 700;
+		}
+
+		else {
+			std::cout << "It's tails!\n";
+			system("pause");
+			system("cls");
+			std::cout << "The coin starts to shake violently...\n";
+			system("pause");
+			system("cls");
+			std::cout << "It starts to make a hineous sound...\n";
+			system("pause");
+			system("cls");
+			std::cout << "...";
+			system("pause");
+			std::cout << "The coin explodes!\n";
+			system("pause");
+			system("cls");
+			std::cout << "Your life has been greatly hindered...\n";
+			system("pause");
+			system("cls");
+			
+			playerHealth -= 2;
+
+			if (playerHealth <= 0) {
+				std::cout << "Gambling has yet taken another life...\n";
+				system("pause");
+				system("cls");
+				std::cout << "You died.\n";
+				system("pause");
+				exit(0);
+			}
+		}
+	}
+
+	else {
+		system("cls");
+		std::cout << "You dont own a Gambling coin...";
+		system("pause");
+		return;
+	}
+}
+
+void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPosition, int& money, int& winChance, int& playerHealth, std::vector<Item> avalibleItems, bool& bomb, bool& gamblingCoin) {
 
 	std::string input;
 	char direction;
@@ -216,6 +300,7 @@ void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPos
 	else if (input == "d") input = "D";
 	else if (input == "e") input = "E";
 	else if (input == "k") input = "K";
+	else if (input == "g") input = "G";
 
 	direction = input[0];
 
@@ -228,7 +313,7 @@ void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPos
 		else if ((dungeon[playerPosition.x - 1][playerPosition.y] == 'C')) AddPoints(money, winChance);
 		else if (dungeon[playerPosition.x - 1][playerPosition.y] == 'O') EscapeDungeon(money);
 		else if (dungeon[playerPosition.x - 1][playerPosition.y] == 'S') {
-			OpenShop(avalibleItems, money, winChance, playerHealth, bomb);
+			OpenShop(avalibleItems, money, winChance, playerHealth, bomb, gamblingCoin);
 			dungeon[playerPosition.x - 1][playerPosition.y] = 'S'; // Change here
 			break;
 		}
@@ -244,7 +329,7 @@ void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPos
 		else if ((dungeon[playerPosition.x + 1][playerPosition.y] == 'C')) AddPoints(money, winChance);
 		else if (dungeon[playerPosition.x + 1][playerPosition.y] == 'O') EscapeDungeon(money);
 		else if (dungeon[playerPosition.x + 1][playerPosition.y] == 'S') {
-			OpenShop(avalibleItems, money, winChance, playerHealth, bomb);
+			OpenShop(avalibleItems, money, winChance, playerHealth, bomb, gamblingCoin);
 			dungeon[playerPosition.x + 1][playerPosition.y] = 'S'; // Change here
 			break;
 		}
@@ -261,7 +346,7 @@ void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPos
 		else if ((dungeon[playerPosition.x][playerPosition.y - 1] == 'C')) AddPoints(money, winChance);
 		else if (dungeon[playerPosition.x][playerPosition.y - 1] == 'O') EscapeDungeon(money);
 		else if (dungeon[playerPosition.x][playerPosition.y - 1] == 'S') {
-			OpenShop(avalibleItems, money, winChance, playerHealth, bomb);
+			OpenShop(avalibleItems, money, winChance, playerHealth, bomb, gamblingCoin);
 			dungeon[playerPosition.x][playerPosition.y - 1] = 'S'; // Change here
 			break;
 		}
@@ -278,7 +363,7 @@ void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPos
 		else if ((dungeon[playerPosition.x][playerPosition.y + 1] == 'C')) AddPoints(money, winChance);
 		else if ((dungeon[playerPosition.x][playerPosition.y + 1] == 'O')) EscapeDungeon(money);
 		else if (dungeon[playerPosition.x][playerPosition.y + 1] == 'S') {
-			OpenShop(avalibleItems, money, winChance, playerHealth, bomb);
+			OpenShop(avalibleItems, money, winChance, playerHealth, bomb, gamblingCoin);
 			dungeon[playerPosition.x][playerPosition.y + 1] = 'S'; // Change here
 			break;
 		}
@@ -298,7 +383,12 @@ void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPos
 		PlayerKillHimSelf(bomb, winChance);
 		break;
 
+	case ('G'):
+		GamblingCoin(money, playerHealth, gamblingCoin);
+		break;
+
 	default:
+
 		break;
 	}
 

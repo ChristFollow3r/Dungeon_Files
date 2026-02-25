@@ -11,6 +11,7 @@ int main() {
 	int playerHealth = rand() % 6;
 	int winChance = 30;
 	bool bomb = false;
+	bool gamblingCoin = false;
 	std::vector<Item> avalibleItems;
 
 	if (playerHealth == 0) {
@@ -39,8 +40,9 @@ int main() {
 		std::cout << "Your budget: " << money << "\n";
 		std::cout << "Your health: " << playerHealth << "\n";
 		std::cout << "(K) Bomb: " << bomb << "\n";
+		std::cout << "(G) Gambling coin: " << gamblingCoin << "\n";
 		/// Crec que tenir tot el joc a aquesta funció es una mica MOLT mala pràctica, pero bueno ja està fet :V
-		PlayerMovement(dungeon, playerPosition, money, winChance, playerHealth, avalibleItems, bomb);
+		PlayerMovement(dungeon, playerPosition, money, winChance, playerHealth, avalibleItems, bomb, gamblingCoin);
 
 	}
 

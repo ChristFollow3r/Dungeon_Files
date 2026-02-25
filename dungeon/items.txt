@@ -6,7 +6,7 @@ Bomb
 150
 0
 Allows you to kill yourself.
-Gambling coin
+Gambling_Coin
 500
 0
 Use it in the cassino (K). If you win you might get a shit ton of money
