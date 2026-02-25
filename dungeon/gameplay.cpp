@@ -46,7 +46,7 @@ void Enemy(int winChance, int& money, int& playerHealth) {
 		system("cls");
 		std::cout << "You won this combat!\n";
 		system("pause");
-		money += rand() % 50;
+		money += rand() % 150;
 		return;
 	}
 	else {
