@@ -121,7 +121,7 @@ void GetItemsFromFile(std::vector<Item>& avalibleItems) {
 
 		for (int i = 0; i < 4; i++)
 		{
-			itemInfo.pop_back();
+			itemInfo.erase(itemInfo.begin());
 		}
 
 		avalibleItems.push_back(*item);
