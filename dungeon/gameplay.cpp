@@ -166,7 +166,7 @@ void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPos
 		else if (dungeon[playerPosition.x - 1][playerPosition.y] == 'O') EscapeDungeon(money);
 		else if (dungeon[playerPosition.x - 1][playerPosition.y] == 'S') {
 			OpenShop(avalibleItems, money, winChance, playerHealth);
-			dungeon[playerPosition.x][playerPosition.y] = 'S';
+			dungeon[playerPosition.x - 1][playerPosition.y] = 'S'; // Change here
 			break;
 		}
 		else if (dungeon[playerPosition.x - 1][playerPosition.y] == 'E') Enemy(winChance, money, playerHealth);
@@ -182,7 +182,7 @@ void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPos
 		else if (dungeon[playerPosition.x + 1][playerPosition.y] == 'O') EscapeDungeon(money);
 		else if (dungeon[playerPosition.x + 1][playerPosition.y] == 'S') {
 			OpenShop(avalibleItems, money, winChance, playerHealth);
-			dungeon[playerPosition.x][playerPosition.y] = 'S';
+			dungeon[playerPosition.x + 1][playerPosition.y] = 'S'; // Change here
 			break;
 		}
 		else if (dungeon[playerPosition.x + 1][playerPosition.y] == 'E') Enemy(winChance, money, playerHealth);
@@ -199,7 +199,7 @@ void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPos
 		else if (dungeon[playerPosition.x][playerPosition.y - 1] == 'O') EscapeDungeon(money);
 		else if (dungeon[playerPosition.x][playerPosition.y - 1] == 'S') {
 			OpenShop(avalibleItems, money, winChance, playerHealth);
-			dungeon[playerPosition.x][playerPosition.y] = 'S';
+			dungeon[playerPosition.x][playerPosition.y - 1] = 'S'; // Change here
 			break;
 		}
 		else if (dungeon[playerPosition.x][playerPosition.y - 1] == 'E') Enemy(winChance, money, playerHealth);
@@ -216,7 +216,7 @@ void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPos
 		else if ((dungeon[playerPosition.x][playerPosition.y + 1] == 'O')) EscapeDungeon(money);
 		else if (dungeon[playerPosition.x][playerPosition.y + 1] == 'S') {
 			OpenShop(avalibleItems, money, winChance, playerHealth);
-			dungeon[playerPosition.x][playerPosition.y] = 'S';
+			dungeon[playerPosition.x][playerPosition.y + 1] = 'S'; // Change here
 			break;
 		}
 		else if (dungeon[playerPosition.x][playerPosition.y + 1] == 'E') Enemy(winChance, money, playerHealth);
