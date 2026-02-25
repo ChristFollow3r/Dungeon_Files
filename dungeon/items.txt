@@ -9,7 +9,7 @@ Allows you to kill yourself.
 Gambling_Coin
 500
 0
-Use it in the cassino (K). If you win you might get a shit ton of money
+Use it in the casino (G). If you win you might get a shit ton of money...
 Sword
 450
 35

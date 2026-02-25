@@ -103,7 +103,7 @@ void OpenShop(std::vector<Item> avalibleItems, int& money, int& winChance, int& 
 			money -= avalibleItems[i].price;
 			winChance += avalibleItems[i].winChance;
 			system("cls");
-			std::cout << "Congratulations! Now you are a proud owner of '" << avalibleItems[i].name << "'.\n";
+			std::cout << "Congratulations!\nYou are now a proud owner of '" << avalibleItems[i].name << "'.\n";
 
 			if (avalibleItems[i].name == "Potion") playerHealth += 1;
 			else if (avalibleItems[i].name == "Bomb") bomb = true;
@@ -218,7 +218,7 @@ void GamblingCoin(int& money, int& playerHealth, bool& gamblingCoin) {
 		std::cout << "You stare at it...\n";
 		system("pause");
 		system("cls");
-		std::cout << "And you think yo yourself...\n";
+		std::cout << "And you think to yourself...\n";
 		system("pause");
 		system("cls");
 		std::cout << "What's that coing made off?\n";
@@ -227,7 +227,7 @@ void GamblingCoin(int& money, int& playerHealth, bool& gamblingCoin) {
 		std::cout << "The coin starts to fall...\n";
 		system("pause");
 		system("cls");
-		std::cout << "It's about to reach your hand again...\n";
+		std::cout << "It's about to reach your hand...\n";
 		system("pause");
 		system("cls");
 
@@ -239,11 +239,11 @@ void GamblingCoin(int& money, int& playerHealth, bool& gamblingCoin) {
 			std::cout << "The coin emits a feble light...\n";
 			system("pause");
 			system("cls");
-			std::cout << "You you've gained 700 coins!\n";
+			std::cout << "You you've gained 800 coins!\n";
 			system("pause");
 			system("cls");
 			gamblingCoin = false;
-			money += 700;
+			money += 800;
 		}
 
 		else {
@@ -256,8 +256,9 @@ void GamblingCoin(int& money, int& playerHealth, bool& gamblingCoin) {
 			std::cout << "It starts to make a hineous sound...\n";
 			system("pause");
 			system("cls");
-			std::cout << "...";
+			std::cout << "...\n";
 			system("pause");
+			system("cls");
 			std::cout << "The coin explodes!\n";
 			system("pause");
 			system("cls");
