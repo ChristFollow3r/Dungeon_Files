@@ -125,6 +125,7 @@ void GetItemsFromFile(std::vector<Item>& avalibleItems) {
 		}
 
 		avalibleItems.push_back(*item);
+		delete(item); // Fixes memory leak issues. I think.
 	}
 	
 

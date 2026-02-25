@@ -9,7 +9,7 @@
 
 void AddPoints(int& points, int& winChance) {
 	points += rand() % 100;
-	winChance += rand() % 10;
+	winChance += rand() % 5;
 }
 
 void EscapeDungeon(int& money) {
@@ -183,6 +183,7 @@ void FindExit(std::vector<std::vector<char>>& dungeon) {
 }
 
 void PlayerKillHimSelf(bool& bomb, int& winChance) {
+
 	system("cls");
 	if (bomb == false) {
 		std::cout << "You don't have a bomb to kill your self. In this real the only way to kill one's self is blowing your self up...\n";
