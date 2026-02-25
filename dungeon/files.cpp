@@ -37,6 +37,7 @@ std::vector<std::vector<char>> CreateOrNotDungeonWithFile() {
 			std::vector<char> row;
 
 			for (char x : line) {
+				if (x == '.') x = ' ';
 				row.push_back(x);
 			}
 

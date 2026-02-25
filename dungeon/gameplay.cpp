@@ -8,7 +8,7 @@
 // Segurament es poden arreglar moltes mes cosses però amb això estic content :)
 
 void AddPoints(int& points, int& winChance) {
-	points += rand() % 100;
+	points += rand() % 60;
 	winChance += rand() % 5;
 }
 
@@ -249,7 +249,7 @@ void GamblingCoin(int& money, int& playerHealth, bool& gamblingCoin) {
 		std::cout << "And you think to yourself...\n";
 		system("pause");
 		system("cls");
-		std::cout << "What's that coin made off?\n";
+		std::cout << "What's this coin made off?\n";
 		system("pause");
 		system("cls");
 		std::cout << "The coin starts to fall...\n";
@@ -264,7 +264,7 @@ void GamblingCoin(int& money, int& playerHealth, bool& gamblingCoin) {
 			std::cout << "It's heads!\n";
 			system("pause");
 			system("cls");
-			std::cout << "The coin emits a feble light...\n";
+			std::cout << "The coin emits a feeble light...\n";
 			system("pause");
 			system("cls");
 			std::cout << "You you've gained 800 coins!\n";
