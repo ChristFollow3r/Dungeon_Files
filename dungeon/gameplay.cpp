@@ -3,9 +3,9 @@
 
 // Martí, amb aquestes dos funcions he apress la seva inportància.
 // Habia escrit aquestes dos funcions 8 vegades en total.
-// I penso. Pero retrassat fes-te una funció. LOL. Un positiu no?
+// I penso. Pero retrassat, fes-te una funció. LOL. Un positiu no?
 
-// Segurament es poden arreglar mmoltes mes cosses però amb això estic content :)
+// Segurament es poden arreglar moltes mes cosses però amb això estic content :)
 
 void AddPoints(int& points, int& winChance) {
 	points += rand() % 100;
@@ -43,6 +43,7 @@ void Enemy(int winChance, int& money, int& playerHealth) {
 	std::cout << "The skeleton attacks you... ";
 	system("pause");
 	if (winChance > eAttack) {
+		system("cls");
 		std::cout << "You won this combat!\n";
 		system("pause");
 		money += rand() % 50;
@@ -57,6 +58,7 @@ void Enemy(int winChance, int& money, int& playerHealth) {
 			exit(0);
 		}
 		else {
+			system("cls");
 			std::cout << "You took a massive blow from the skeleton, but the dude died in the process.\n";
 			system("pause");
 			return;
