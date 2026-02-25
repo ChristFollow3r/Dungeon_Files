@@ -9,7 +9,8 @@ int main() {
 	srand(time(NULL));
 	Position playerPosition;
 	int playerHealth = rand() % 6;
-	int winChance = 30; 
+	int winChance = 30;
+	bool bomb = false;
 	std::vector<Item> avalibleItems;
 
 	if (playerHealth == 0) {
@@ -37,7 +38,9 @@ int main() {
 		PrintDungeon(dungeon);
 		std::cout << "Your budget: " << money << "\n";
 		std::cout << "Your health: " << playerHealth << "\n";
-		PlayerMovement(dungeon, playerPosition, money, winChance, playerHealth, avalibleItems);
+		std::cout << "(K) Bomb: " << bomb << "\n";
+		/// Crec que tenir tot el joc a aquesta funció es una mica MOLT mala pràctica, pero bueno ja està fet :V
+		PlayerMovement(dungeon, playerPosition, money, winChance, playerHealth, avalibleItems, bomb);
 
 	}
 

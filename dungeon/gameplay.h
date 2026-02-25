@@ -38,5 +38,18 @@ void Enemy(int winChance, int& money, int& playerHealth);
 /// <param name="dungeon">The 2D grid</param>
 /// <param name="playerPosition">The player position</param>
 /// <param name="points">The amount of points the player has</param>
-void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position &playerPosition, int& money, int& winChance, int& playerHealth, std::vector<Item> avalibleItems);
-void OpenShop(std::vector<Item> avalibleItems, int& money, int& winChance, int& playerHealth);
+void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position &playerPosition, int& money, int& winChance, int& playerHealth, std::vector<Item> avalibleItems, bool& bomb);
+/// <summary>
+/// Starts a shopping interaction
+/// </summary>
+/// <param name="avalibleItems">The items avalible in the shop</param>
+/// <param name="money">The player amount of money</param
+/// <param name="winChance">The chance amount the player has to win a combat</param>
+/// <param name="playerHealth">The player health</param>
+void OpenShop(std::vector<Item> avalibleItems, int& money, int& winChance, int& playerHealth, bool& bomb);
+/// <summary>
+/// Allows the player to kill himself if he so desires
+/// </summary>
+/// <param name="bomb">Allows the player to kill himself</param>
+/// <param name="winChance">The chance the player has to win a combat</param>
+void PlayerKillHimSelf(bool& bomb, int& winChance);

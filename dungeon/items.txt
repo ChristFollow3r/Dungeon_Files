@@ -5,7 +5,7 @@ Heals you 1 hp
 Bomb
 150
 0
-Allows you to make a hole in a wall (don't use it on border walls and step outside or we all will crash)
+Allows you to kill yourself.
 Gambling coin
 500
 0
