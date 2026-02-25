@@ -246,7 +246,7 @@ void GamblingCoin(int& money, int& playerHealth, bool& gamblingCoin) {
 		std::cout << "And you think to yourself...\n";
 		system("pause");
 		system("cls");
-		std::cout << "What's that coing made off?\n";
+		std::cout << "What's that coin made off?\n";
 		system("pause");
 		system("cls");
 		std::cout << "The coin starts to fall...\n";
