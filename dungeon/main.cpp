@@ -18,7 +18,7 @@ int main() {
 		system("cls");
 		std::cout << "That's some solid bad luck you have mate!\n";
 		std::cout << "The fates didnt want you playing today... You are already dead!\n";
-		std::cout << "Try it again if you dare to defy the fates.";
+		std::cout << "Try it again if you dare to defy the fates.\n";
 		system("pause");
 		exit(0);
 	}

@@ -12,23 +12,27 @@ void AddPoints(int& points, int& winChance) {
 	winChance += rand() % 10;
 }
 
-void EscapeDungeon(int& points) {
+void EscapeDungeon(int& money) {
 	system("cls");
 	char input;
 	std::cout << "Do you want to escape the dungeon? (y / n)\n";
 	std::cin >> input;
-	if (input == 'y' && points >= 800) {
+	if (input == 'y' && money >= 800) {
 		system("cls");
 		std::cout << "Congratulations... You managed to escape the dungeon!\n";
 		system("pause");
 		std::exit(0); // Això de exit li he preguntat a la IA perquè no tenia ni idea de com fer-ho (es tot lo de IA que n'hi ha en el programa fins ara :)
 	}
 
-	else {
+	else if (input == 'y' && money < 800) {
 		system("cls");
 		std::cout << "You dont have enought money to buy your way out!\nCome back with 800 coins...\nIf you manage to find your way back lol.\n";
 		system("pause");
 	}
+
+	system("cls");
+		std::cout << "Alright then, be on your way!\n";
+		system("pause");
 }
 
 void Enemy(int winChance, int& money, int& playerHealth) {
@@ -133,8 +137,8 @@ void OpenShop(std::vector<Item> avalibleItems, int& money, int& winChance, int& 
 	}
 }
 
-void FindShop(std::vector<std::vector<char>>& dungeon) { // Este nombre de funcion ya no refleja lo que hace ahora pero soy demasiado 
-														// Vago como para cambiar el nombre ahora
+void FindExit(std::vector<std::vector<char>>& dungeon) { 
+
 	int max = dungeon.size() * dungeon.size();
 
 	for (int i = 0; i < dungeon.size(); i++) {
@@ -144,10 +148,31 @@ void FindShop(std::vector<std::vector<char>>& dungeon) { // Este nombre de funci
 		}
 	}
 
-	if (max == 0) dungeon[rand() % dungeon.size()][rand() % dungeon.size()] = 'O'; 
+	if (max == 0) {
+
+		int x;
+		int y;
+
+		do
+		{
+			x = rand() % dungeon.size();
+			y = rand() % dungeon.size();
+
+		} while (dungeon[x][y] == 'P');
+ 
+		if (x == 0) x += 1;
+		else if (x == dungeon.size() - 1) x -= 1;
+
+		if (y == 0) y += 1;
+		else if (y == dungeon.size() - 1) y -= 1;
+
+		dungeon[x][y] = 'O';
+
+	}
 
 	// Et deixo aqui un cadaver d'un tros de codi que pensava que era genius moment pero que feia que sortisin pila de S
-
+	// Ara aixo fa O per abans feia S
+	
 	//for (int i = 0; i < dungeon.size(); i++) {
 	//	auto it = std::find(dungeon[i].begin(), dungeon[i].end(), 'S');
 	//	if (it == dungeon[i].end() && i == dungeon.size() - 1) {
@@ -321,7 +346,7 @@ void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPos
 		else if (dungeon[playerPosition.x - 1][playerPosition.y] == 'E') Enemy(winChance, money, playerHealth);
 		dungeon[playerPosition.x - 1][playerPosition.y] = 'P';
 		dungeon[playerPosition.x][playerPosition.y] = ' ';
-		FindShop(dungeon);
+		FindExit(dungeon);
 		playerPosition.x -= 1;
 		break;
 
@@ -338,7 +363,7 @@ void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPos
 
 		dungeon[playerPosition.x + 1][playerPosition.y] = 'P';
 		dungeon[playerPosition.x][playerPosition.y] = ' ';
-		FindShop(dungeon);
+		FindExit(dungeon);
 		playerPosition.x += 1;
 		break;
 
@@ -355,7 +380,7 @@ void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPos
 
 		dungeon[playerPosition.x][playerPosition.y - 1] = 'P';
 		dungeon[playerPosition.x][playerPosition.y] = ' ';
-		FindShop(dungeon);
+		FindExit(dungeon);
 		playerPosition.y -= 1;
 		break;
 
@@ -372,7 +397,7 @@ void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPos
 
 		dungeon[playerPosition.x][playerPosition.y + 1] = 'P';
 		dungeon[playerPosition.x][playerPosition.y] = ' ';
-		FindShop(dungeon);
+		FindExit(dungeon);
 		playerPosition.y += 1;
 		break;
 
