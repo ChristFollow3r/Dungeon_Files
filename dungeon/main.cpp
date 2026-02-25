@@ -12,6 +12,15 @@ int main() {
 	int winChance = 30; 
 	std::vector<Item> avalibleItems;
 
+	if (playerHealth == 0) {
+		system("cls");
+		std::cout << "That's some solid bad luck you have mate!\n";
+		std::cout << "The fates didnt want you playing today... You are already dead!\n";
+		std::cout << "Try it again if you dare to defy the fates.";
+		system("pause");
+		exit(0);
+	}
+
 	std::vector<std::vector<char>> dungeon = CreateOrNotDungeonWithFile();
 	GetItemsFromFile(avalibleItems);
 	PlaceChests(dungeon);
