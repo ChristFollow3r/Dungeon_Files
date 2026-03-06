@@ -195,7 +195,7 @@ void PlayerKillHimSelf(bool& bomb, int& winChance) {
 	}
 	std::string input;
 
-	std::cout << "Are you sure you want to kill your self: ";
+	std::cout << "Are you sure you want to kill your self (y/n): ";
 	std::cin >> input;
 
 	if (input == "y" || input == "Y" || input == "yes" || input == "YES" && bomb == true) {
