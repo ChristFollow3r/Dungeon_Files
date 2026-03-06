@@ -40,9 +40,9 @@ void PlaceChests(std::vector<std::vector<char>>& dungeon) {
 	int y;
 
 
-	while (amount < 0 || amount >= (dungeon.size() / 1.5)) {
+	while (amount < 0 || amount > (dungeon.size() / 1.5)) {
 
-	std::cout << "How many chests do you want the dungeon to have (max = dungeon size / 1.5): ";
+	std::cout << "How many chests do you want the dungeon to have (" << static_cast<float>(dungeon.size()) / 1.5 << "): ";
 	std::cin >> input;
 
 	amount = stoi(input);

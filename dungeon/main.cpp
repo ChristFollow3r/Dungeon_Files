@@ -6,6 +6,15 @@
 
 int main() {
 
+	std::cout << "Welcome to this console dungeon game!\n";
+	std::cout << "You'll start your game with a random amount of health (there's a chance you won't be able to start your journey :)\n";
+	std::cout << "At any time while playing you can check your current health below the dungeon and the amount of money you have.\n";
+	std::cout << "Also be aware, there are two items you can buy that have their own distinct functions, and you can only have one of them at any time.\n";
+	std::cout << "That means that if you buy two gambling coins, for example, the game will still think you only have one. So if you plan on buying more than ";
+	std::cout << "one of those items, use one before buying the next one.\n\n";
+	system("pause");
+	system("cls");
+
 	srand(time(NULL));
 
 	Position playerPosition;
