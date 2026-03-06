@@ -18,3 +18,7 @@ También tendras que escribir antes de cada fila de carácteres la cantidad de c
 
 Si cargas un un binario que no tenga escritas estas variables en este orden en específico, el programa va a crahsear.
 Si se carga un binario sin cumplir con estas especificaciones el programa va a crashear.
+
+
+!SEMI IMPORTAMTE! Si creas un mapa custom con txt es MUY IPORTANTE que el mapa tenga SOLO una S (mayúscula) y una O ('mayúscula'). Si el mapa
+carece de esos elementos, no se podra ganar el juego.

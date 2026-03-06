@@ -8,7 +8,7 @@
 // and i push it to the vector of vectors.
 // Either way it returns a vector of vectors called dungeon.
 
-std::vector<std::vector<char>> CreateOrNotDungeonWithFile() {
+std::pair<bool, std::vector<std::vector<char>>> CreateOrNotDungeonWithFile() {
 
 	std::vector<std::vector<char>> dungeon;
 	std::string line;
@@ -19,7 +19,7 @@ std::vector<std::vector<char>> CreateOrNotDungeonWithFile() {
 
 	if (input == 'n' || input == 'N') {
 		dungeon = CreateDungeon();
-		return dungeon;
+		return { 0, dungeon };
 	}
 
 	else {
@@ -29,7 +29,7 @@ std::vector<std::vector<char>> CreateOrNotDungeonWithFile() {
 		if (!dungeonFile.is_open()) {
 			std::cout << "Couldn't open the file. The program will generate the dungeon...";
 			dungeon = CreateDungeon();
-			return dungeon;
+			return {0,dungeon };
 		}
 
 		while (std::getline(dungeonFile, line)) {
@@ -44,7 +44,7 @@ std::vector<std::vector<char>> CreateOrNotDungeonWithFile() {
 			dungeon.push_back(row);
 		}
 		dungeonFile.close();
-		return dungeon;
+		return { 1,dungeon };
 	}
 }
 

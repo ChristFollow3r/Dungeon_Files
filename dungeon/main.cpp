@@ -27,6 +27,8 @@ int main() {
 	bool gamblingCoin = false;
 	bool askForBinary = true;
 
+	bool customMap;
+
 	char answer;
 
 	std::vector<Item> avalibleItems;
@@ -39,12 +41,23 @@ int main() {
 
 
 	if (!askForBinary) {
-		dungeon = CreateOrNotDungeonWithFile();
-		PlaceChests(dungeon);
-		PlaceEnemies(dungeon);
+
+		auto result = CreateOrNotDungeonWithFile(); // I asked AI how to run this function only once, it suggested using auto. I was making the program run this function twice
+		// by doing dungeon = CreateOrNotDungeonWithFile().second and customMap = CreateOrNotDungeonWithFile().first. 
+
+
+		customMap = result.first;
+		dungeon = result.second;
+
+		if (customMap == false) {
+			PlaceChests(dungeon);
+			PlaceEnemies(dungeon);
+		}
+
 		playerPosition.x = dungeon.size() / 2;
 		playerPosition.y = dungeon.size() / 2;
 		dungeon[playerPosition.x][playerPosition.y] = 'P';
+
 	}
 	else dungeon = LoadDungeonWithBinary(playerPosition, money, winChance, playerHealth, bomb, gamblingCoin);
 
