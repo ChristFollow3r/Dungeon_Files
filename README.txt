@@ -22,5 +22,5 @@ Si se carga un binario sin cumplir con estas especificaciones el programa va a c
 !SEMI IMPORTAMTE! Si creas un mapa custom con txt es MUY IPORTANTE que el mapa tenga SOLO una S (mayúscula) y una O ('mayúscula'). Si el mapa
 carece de esos elementos, no se podra ganar el juego.
 
-En esta versiion del trabajo que se nos pide, el jugador empieza con una cantidad aleatoria de vidas. Puede empezar con 0 vidas y perder directamente (es una feature!). 
+En esta versión del trabajo que se nos pide, el jugador empieza con una cantidad aleatoria de vidas. Puede empezar con 0 vidas y perder directamente (es una feature!), o con 1 o 2 vidas... o con 7. 
 Los items se consiguen en la tienda (S) y la salida (O) es la única manera de ganar la partida. 
