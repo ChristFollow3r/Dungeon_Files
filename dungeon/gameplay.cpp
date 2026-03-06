@@ -405,7 +405,7 @@ void PlayerMovement(std::vector<std::vector<char>>& dungeon, Position& playerPos
 		break;
 
 	case ('E'): 
-		SaveAndExitGame(dungeon);
+		SaveAndExitGame(dungeon, playerPosition, money, winChance, playerHealth, bomb, gamblingCoin); // The order of the variables is changed compared to other functinos but it is was it is...
 		exit(0);
 
 	case ('K'): 

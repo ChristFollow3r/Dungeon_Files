@@ -48,7 +48,7 @@ std::vector<std::vector<char>> CreateOrNotDungeonWithFile() {
 	}
 }
 
-void SaveAndExitGame(std::vector<std::vector<char>>& dungeon) { // Diria que no la necessito per referencia pero jo ho faig per si acas.
+void SaveAndExitGame(std::vector<std::vector<char>>& dungeon, Position playerPosition, int money, int winChance, int playerHealth, bool bomb, bool gamblingCoin) { 
 
 	std::fstream file("savedGame.bin", std::ios::out | std::ios::binary);
 	std::string input;
@@ -65,11 +65,20 @@ void SaveAndExitGame(std::vector<std::vector<char>>& dungeon) { // Diria que no 
 		return;
 	}
 
+	file.write(reinterpret_cast<char*>(&playerPosition), sizeof(Position));
+	file.write(reinterpret_cast<char*>(&money), sizeof(int));
+	file.write(reinterpret_cast<char*>(&winChance), sizeof(int));
+	file.write(reinterpret_cast<char*>(&playerHealth), sizeof(int));
+	file.write(reinterpret_cast<char*>(&bomb), sizeof(bool));
+	file.write(reinterpret_cast<char*>(&gamblingCoin), sizeof(bool));
+
 	for (int i = 0; i < dungeon.size(); i++)
 	{
-		for (char x : dungeon[i]) {
-			file.write(reinterpret_cast<char*>(&x), sizeof(char));
-		}
+		int temp = dungeon[i].size(); 
+
+		file.write(reinterpret_cast<char*>(&temp), sizeof(int)); // Write first the length of the row
+		for (char x : dungeon[i]) file.write(reinterpret_cast<char*>(&x), sizeof(char)); // Write the row content
+
 	}
 
 	file.close();
@@ -130,4 +139,66 @@ void GetItemsFromFile(std::vector<Item>& avalibleItems) {
 	}
 	
 
+}
+
+
+std::vector<std::vector<char>> LoadDungeonWithBinary(Position& playerPosition, int& money, int& winChance, int& playerHealth, bool& bomb, bool& gamblingCoin) {
+
+	std::fstream file("savedGame.bin", std::ios::in | std::ios::binary);
+	std::vector<std::vector<char>> dungeon;
+
+	int rowLength;
+	std::string row;
+	char temp;
+
+	// bruh
+	Position loadedPlayerPosition;
+	int loadedMoney;
+	int loadedWinchance;
+	int loadedPlayerHealth;
+	bool loadedBomb;
+	bool loadedGamblingCoin;
+
+	if (!file.is_open()) {
+		system("cls");
+		std::cout << "Your file couldn't be opened.\n";
+		exit(0);
+	}
+
+	file.read(reinterpret_cast<char*>(&loadedPlayerPosition), sizeof(Position)); // Load all the player stuf...
+	playerPosition = loadedPlayerPosition;
+
+	file.read(reinterpret_cast<char*>(&loadedMoney), sizeof(int));
+	money = loadedMoney;
+
+	file.read(reinterpret_cast<char*>(&loadedWinchance), sizeof(int));
+	winChance = loadedWinchance;
+
+	file.read(reinterpret_cast<char*>(&loadedPlayerHealth), sizeof(int));
+	playerHealth = loadedPlayerHealth;
+
+	file.read(reinterpret_cast<char*>(&loadedBomb), sizeof(bool));
+	bomb = loadedBomb;
+
+	file.read(reinterpret_cast<char*>(&loadedGamblingCoin), sizeof(bool));
+	gamblingCoin = loadedGamblingCoin;
+
+	while (file.read(reinterpret_cast<char*>(&rowLength), sizeof(int))) { // The idea is that before reading the chars of each row, the binary must conatin
+																		 // the number of chars that row has.
+
+		std::vector<char> tempVector;
+		row.resize(rowLength);
+		
+		for (int i = 0; i < rowLength; i++)
+		{
+			file.read(reinterpret_cast<char*>(&temp), sizeof(char));
+			row[i] = temp;
+		}
+
+		for (char x : row) tempVector.push_back(x);
+		dungeon.push_back(tempVector);
+	}
+	file.close();
+
+	return dungeon;
 }
